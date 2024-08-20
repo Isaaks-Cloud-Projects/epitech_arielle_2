@@ -1,0 +1,10 @@
+{
+    "firstname":"user-test1",
+    "lastname":"user-test2",
+    "email": "test1@email.fr",
+    "sexe":"M",
+    "password":"passwordd",
+    "pseudo":"isocs",
+    "date_naissance":"01-01-1975",
+    "langue":"FR"
+}

@@ -1,0 +1,10 @@
+
+
+17:25:59 error: syntax error at or near ")"
+         query: INSERT INTO users(firstname,lastname,email,password,pseudo,date_naissance,sexe,langue,) VALUES('Issiack',$2,$3,$4,$5,$6,$7,$8) RETURNING *
+
+17:29:35 error: there is no parameter $2
+         query: INSERT INTO users(firstname,lastname,email,password,pseudo,date_naissance,sexe,langue) VALUES('Issiack',$2,$3,$4,$5,$6,$7,$8) RETURNING *
+
+17:32:10 error: syntax error at or near ")"
+         query: INSERT INTO users(firstname,lastname,email,password,pseudo,date_naissance,sexe,langue,) VALUES('Issiack',$2,$3,$4,$5,$6,$7,$8) RETURNING *

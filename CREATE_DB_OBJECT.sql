@@ -1,0 +1,88 @@
+DROP TABLE USERS CASCADE;
+CREATE TABLE IF NOT EXISTS USERS
+(
+id SERIAL PRIMARY KEY, 
+lastname VARCHAR(40),
+firstname VARCHAR(40),
+email VARCHAR(40),
+password VARCHAR(40),
+peudo VARCHAR(40),
+date_naissance DATE,
+sexe VARCHAR(10),
+langue VARCHAR(20)
+);
+
+DROP TABLE MESSAGES CASCADE;
+CREATE TABLE IF NOT EXISTS MESSAGES
+(
+id SERIAL PRIMARY KEY,
+id_createur INTEGER,
+id_destinateur INTEGER,
+contenu VARCHAR(500),
+date_heure TIMESTAMP
+);
+
+DROP TABLE ADDRESSES CASCADE;
+CREATE TABLE IF NOT EXISTS ADDRESSES
+(
+    id SERIAL PRIMARY KEY,
+    nom_rue VARCHAR(40),
+    num_rue VARCHAR(40),
+    id_user INTEGER 
+);
+
+DROP TABLE EVENTS CASCADE;
+CREATE TABLE IF NOT EXISTS EVENTS
+(
+    id SERIAL PRIMARY KEY,
+    title VARCHAR(20),
+    description VARCHAR(500),
+    date_heure TIMESTAMP,
+    id_createur INTEGER,
+    id_addresse INTEGER
+
+);
+
+
+-- MESSAGES
+
+ALTER TABLE MESSAGES ADD 
+CONSTRAINT fk_createur FOREIGN KEY (id_createur)
+REFERENCES USERS(id)
+ON DELETE CASCADE;
+
+ALTER TABLE MESSAGES ADD 
+CONSTRAINT fk_destinateur FOREIGN KEY (id_destinateur)
+REFERENCES USERS(id)
+ON DELETE CASCADE;
+
+-- ADDRESSES
+ALTER TABLE ADDRESSES ADD 
+CONSTRAINT fk_user FOREIGN KEY (id_user)
+REFERENCES USERS(id)
+ON DELETE CASCADE;
+
+-- EVENTS
+ALTER TABLE EVENTS ADD
+CONSTRAINT fk_createur FOREIGN KEY (id_createur)
+REFERENCES USERS(id)
+ON DELETE CASCADE; 
+
+ALTER TABLE EVENTS ADD
+CONSTRAINT fk_addresse FOREIGN KEY (id_addresse)
+REFERENCES ADDRESSES(id)
+ON DELETE CASCADE;
+
+-- POPULATE DB 
+lastname VARCHAR(40),
+firstname VARCHAR(40),
+email VARCHAR(40),
+password VARCHAR(40),
+peudo VARCHAR(40),
+date_naissance VARCHAR(40),
+sexe VARCHAR(10),
+langue VARCHAR(20)
+
+-- CREATE USER IN DB. 
+INSERT INTO USERS(firstname,lastname,email,password,peudo,date_naissance,sexe,langue)
+values('Arielle','ARAKAZA','aakaza.2005@gmail.com','18051994amahoro','amazing','06-05-1994','F','FR');
